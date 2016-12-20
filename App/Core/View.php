@@ -15,7 +15,7 @@ class View
      *
      * @var string
      */
-    protected $view = "Views";
+    protected $view = "template/main";
 
     /**
      * Render view file, surrounding it with layout.
@@ -33,7 +33,7 @@ class View
         ob_clean();
 
         ob_start();
-        require ROOT_PATH . "/App/{$this->view}/{$viewFile}.php";
+        require ROOT_PATH . "/{$this->view}.php";
         $result = ob_get_contents();
         ob_clean();
         echo $result;
@@ -70,10 +70,10 @@ class View
     {
        $viewFilepath = implode(DIRECTORY_SEPARATOR, [
             ROOT_PATH,
-            'App',
-            $this->view,
+            'App/Views',
             "{$view}.php"
         ]);
        return $viewFilepath;
+
     }
 }

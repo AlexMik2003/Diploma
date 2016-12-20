@@ -16,6 +16,6 @@ class UserController extends Controller
 
     public function actionLogin()
     {
-        $this->view->render("login");
+        $this->view->render("login",['hello' => "HELLO WORLD!"]);
     }
 }
