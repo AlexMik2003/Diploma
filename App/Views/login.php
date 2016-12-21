@@ -1,14 +1,31 @@
 <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-        <form>
-            <div class="form-group">
-                <label for="login">Login:</label>
-                <input type="text" id="login" name="login" placeholder="Your login...">
+    <div class="col-xs-4 col-xs-offset-4">
+        <h1 class="page-header"></h1>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="text-center"><strong>User Login</strong></h3>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Your password...">
+            <div class="panel-body">
+                <form class="form-horizontal" action="user/login" method="post">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-3 control-label">User Name: </label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="username" placeholder="Username...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label">Password: </label>
+                        <div class="col-sm-7">
+                            <input type="password" class="form-control" id="password" placeholder="Password...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-5 col-sm-10">
+                            <button type="submit" class="btn btn-primary"><strong>Login</strong></button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </div>
