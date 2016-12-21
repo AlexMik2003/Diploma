@@ -1,11 +1,11 @@
 <?php
 
 
-namespace App\Controllers;
+namespace app\controllers;
 
 
-use App\Core\Controller;
-use App\Core\View;
+use app\core\Controller;
+
 
 class UserController extends Controller
 {
@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function actionLogin()
     {
-        $this->view->render("test",['hello' => "HELLO WORLD!"]);
+        $this->view->render("login",['hello' => "HELLO WORLD!"]);
     }
 
 

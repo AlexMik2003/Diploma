@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Core;
+namespace app\core;
 
 /**
  *  Application configuration wrapper class.
  *
- * @package App\Core
+ * @package app\core
  */
 
 class Config
@@ -18,9 +18,9 @@ class Config
     public $db;
 
     /**
-     * App configuration.
+     * app configuration.
      *
-     * @var \App\Core\Request
+     * @var \app\core\Request
      */
     public $request;
 

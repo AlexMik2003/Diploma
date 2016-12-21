@@ -3,20 +3,20 @@
         <h1 class="page-header"></h1>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="text-center"><strong>User Login</strong></h3>
+                <h4 class="text-center"><strong>USER LOGIN</strong></h4>
             </div>
             <div class="panel-body">
                 <form class="form-horizontal" action="user/login" method="post">
                     <div class="form-group">
                         <label for="username" class="col-sm-3 control-label">User Name: </label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="username" placeholder="Username...">
+                            <input type="text" class="form-control" id="username" placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-sm-3 control-label">Password: </label>
                         <div class="col-sm-7">
-                            <input type="password" class="form-control" id="password" placeholder="Password...">
+                            <input type="password" class="form-control" id="password" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">

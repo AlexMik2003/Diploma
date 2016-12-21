@@ -1,23 +1,23 @@
 <?php
 
 
-namespace App\Core;
+namespace app\core;
 
 /**
  *  Class Router is responsible for resolution of all incoming HTTP requests.
  *
  * It tries to parse `route` GET query parameter and define which controller and which controller's method should be called.
  *
- * @package App\Core
+ * @package app\core
  */
 
 class Router
 {
 
     /**
-     * App configuration.
+     * app configuration.
      *
-     * @var \App\Core\Config
+     * @var \app\core\Config
      */
     public $config;
 
@@ -62,7 +62,7 @@ class Router
         $this->route = $route_path + $defaults;
 
         $controller = ucfirst($this->route['controller']) . 'Controller';
-        $controller = "\\App\\Controllers\\{$controller}";
+        $controller = "\\app\\controllers\\{$controller}";
         $action = 'action' . ucfirst($this->route['action']);
 
         $this->route = [

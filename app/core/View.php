@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Core;
+namespace app\core;
 
 /**
  * Class Base View
  *
- * @package App\Core
+ * @package app\core
  */
 class View
 {
@@ -70,7 +70,7 @@ class View
     {
        $viewFilepath = implode(DIRECTORY_SEPARATOR, [
             ROOT_PATH,
-            'App/Views',
+            'app/views',
             "{$view}.php"
         ]);
        return $viewFilepath;

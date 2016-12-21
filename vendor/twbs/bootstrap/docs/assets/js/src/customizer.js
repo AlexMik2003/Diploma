@@ -238,7 +238,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
       var fileInclude = lessFileIncludes[filename]
 
       // Files not explicitly unchecked are compiled into the final stylesheet.
-      // Core stylesheets like 'normalize.less' are not included in the form
+      // core stylesheets like 'normalize.less' are not included in the form
       // since disabling them would wreck everything, and so their 'fileInclude'
       // will be 'undefined'.
       if (fileInclude || fileInclude == null)    lessSource += __less[filename]

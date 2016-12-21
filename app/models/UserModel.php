@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Models;
+namespace app\models;
 
 
-use App\Core\Model;
+use app\core\Model;
 
 class UserModel extends Model
 {

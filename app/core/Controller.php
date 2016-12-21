@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Core;
+namespace app\core;
 
 /**
  * Class Base Controller
  *
- * @package App\Core
+ * @package app\core
  */
 class Controller
 {

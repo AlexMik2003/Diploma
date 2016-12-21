@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Core;
+namespace app\core;
 
 /**
  * Class Base Model
  *
- * @package App\Core
+ * @package app\core
  */
 class Model
 {
