@@ -1,9 +1,10 @@
 <?php
+
 ini_set('display_errors', 1);
 
 require_once 'config/bootstrap.php';
 
-use app\core\Router;
+use app\App;
 
-$router = new Router();
-$router->start();
+$app= new App();
+$app->run();

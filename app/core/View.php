@@ -1,7 +1,7 @@
 <?php
 
-
 namespace app\core;
+
 
 /**
  * Class Base View
@@ -15,13 +15,13 @@ class View
      *
      * @var string
      */
-    protected $view = "template/main";
+    protected $view = "/template/main";
 
     /**
      * Render view file, surrounding it with layout.
      *
      * @param string $viewFile View file name to render.
-     * @param array  $params   Render parameters.
+     * @param array $params Render parameters.
      *
      * @return void
      */
@@ -33,7 +33,7 @@ class View
         ob_clean();
 
         ob_start();
-        require ROOT_PATH . "/{$this->view}.php";
+        require ROOT_PATH . $this->view.".php";
         $result = ob_get_contents();
         ob_clean();
         echo $result;
@@ -42,8 +42,8 @@ class View
     /**
      * Renders view file without wrapping it with layout.
      *
-     * @param string $view   View file name to render.
-     * @param array  $params View rendering parameters.
+     * @param string $view View file name to render.
+     * @param array $params View rendering parameters.
      *
      * @return mixed
      */
@@ -68,12 +68,12 @@ class View
      */
     protected function resolveViewFilename($view)
     {
-       $viewFilepath = implode(DIRECTORY_SEPARATOR, [
+        $viewFilepath = implode(DIRECTORY_SEPARATOR, [
             ROOT_PATH,
             'app/views',
             "{$view}.php"
         ]);
-       return $viewFilepath;
+        return $viewFilepath;
 
     }
 }

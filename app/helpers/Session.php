@@ -1,12 +1,12 @@
 <?php
 
+namespace app\helpers;
 
-namespace app\core;
 
 /**
  * Class Session
  *
- * @package app\core
+ * @package app.old\core
  */
 class Session
 {

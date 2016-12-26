@@ -1,12 +1,8 @@
 <?php
 
-
 namespace app\controllers;
-
-
 use app\core\Controller;
-use app\core\Model;
-use app\core\Session;
+use app\helpers\Session;
 use app\models\UserModel;
 
 /**
@@ -18,35 +14,29 @@ class UserController extends Controller
 {
     public function actionIndex()
     {
-        Session::init();
-        $login = Session::get("login");
-        $id = Session::get("id");
-        if(empty($login) || empty($id))
-        {
-            Session::destroy();
-            $this->actionLogin();
-
-        }
-        else{
-            $this->view->render("index");
-        }
+        $this->actionLogin();
     }
 
-    /**
-     * Authorization for users
-     *
-     * @return void
-     */
-    protected function actionLogin()
+    public function actionLogin()
     {
         $this->model = new UserModel();
-        if($this->model->auth())
+        if(!$this->model->auth())
         {
-            $this->view->render("index");
-        }
-        else{
             $this->view->render("login");
         }
-    }
+        else
+        {
+            $login = Session::get("login");
+            $id = Session::get("id");
+            if(empty($login) || empty($id))
+            {
+                Session::destroy();
+                $this->view->render("login");
+            }
+            else{
+                $this->view->render("index");
+            }
 
+        }
+    }
 }

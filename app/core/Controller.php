@@ -1,7 +1,7 @@
 <?php
 
-
 namespace app\core;
+
 
 /**
  * Class Base Controller
@@ -17,7 +17,6 @@ class Controller
     {
         $this->view = new View();
     }
-
     public function actionIndex()
     {
 

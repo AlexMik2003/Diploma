@@ -1,13 +1,7 @@
 <?php
 
+namespace app\web;
 
-namespace app\core;
-
-/**
- * Class Request for HTTP request handling.
- *
- * @package app\core
- */
 
 class Request
 {
@@ -32,6 +26,28 @@ class Request
     }
 
     /**
+     * Resolved incoming HTTP request.
+     *
+     * @return void
+     */
+    public function handleRequest()
+    {
+        $router = new Router();
+        $controllerClass = $router->resolve()->getController();
+        $controllerAction = $router->getAction();
+
+        if (!class_exists($controllerClass)
+            || !method_exists($controllerClass, $controllerAction)
+        ) {
+            header('Not Found', true, 404);
+            exit;
+        }
+
+        $controller = new $controllerClass();
+        call_user_func([$controller, $controllerAction]);
+    }
+
+    /**
      * Tries to find GET query parameter by it's name and return it's value if found.
      * If no such parameter was found, `$default` value will be returned.
      *
@@ -42,8 +58,8 @@ class Request
      */
     public function getParam($name, $default = null)
     {
-        return isset($this->getParams[$name])
-            ? $this->getParams[$name]
+        return isset($this->queryParams[$name])
+            ? $this->queryParams[$name]
             : $default;
     }
 }

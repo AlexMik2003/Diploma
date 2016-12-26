@@ -1,29 +1,15 @@
 <?php
 
-namespace app\core;
+namespace app\web;
+
 
 /**
- *  Application configuration wrapper class.
+ * Class Config - Application configuration wrapper class
  *
- * @package app\core
+ * @package app\web
  */
-
 class Config
 {
-    /**
-     * Database connection.
-     *
-     * @var \PDO
-     */
-    public $db;
-
-    /**
-     * app configuration.
-     *
-     * @var \app\core\Request
-     */
-    public $request;
-
     /**
      * Initial configuration array
      * from `/config/config.php'
@@ -31,7 +17,6 @@ class Config
      * @var array
      */
     protected $config = [];
-
     /**
      * Instantiates configuration component.
      *
@@ -40,11 +25,8 @@ class Config
      * @throws \BadMethodCallException If no config file passed.
      * @throws \InvalidArgumentException If config file cannot be read.
      */
-    public function __construct()
+    public function __construct($configFile)
     {
-        $configFile = ROOT_PATH."/config/config.php";
-        $this->request = new Request();
-
         if (empty($configFile)) {
             throw new \BadMethodCallException('Configuration file name is empty.');
         }
@@ -55,7 +37,6 @@ class Config
         }
         $this->config = require_once $configFile;
     }
-
     /**
      * Returns configuration item.
      *
@@ -69,26 +50,4 @@ class Config
             ? $this->config[$path]
             : null;
     }
-
-    /**
-     * Return configuration parametres from config file.
-     *
-     * @return array
-     */
-    protected function getConfig()
-    {
-        extract($this->config->get("database"));
-
-        $dsn = "mysql:host={$host};dbname={$dbname}";
-        $db = new \PDO($dsn, $user, $password);
-
-
-        return [
-            'config' => $this->config,
-            'db' => $db,
-            'request' => $this->request,
-        ];
-
-    }
-
 }
